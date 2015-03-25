@@ -16,12 +16,15 @@ class SectionsController < ApplicationController
   end
 
   def edit
-		@section = Section.find(params[:id])
+
+  @chapter = Chapter.find(params[:chapter_id])
+	@section = Section.find(params[:id])
+
 	end
 
   def update
 		@section = Section.find(params[:id])
-		@section.update
+		@section.update(section_params)
 		redirect_to chapters_path
 	end
 		
